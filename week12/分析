@@ -1,0 +1,23 @@
+一张表
+Map 输入：
+key是偏移量，不重要。
+value 就是一行记录。key 是 userId，value是<来源于哪张表id，pageId>
+
+Map 输出：
+输出结果：key是userId， value是<来源于哪张表id, pageId>
+
+第二张表
+Map 输出：
+key是偏移量，不重要。
+value 就是一行记录。key 是 userId，<user表的id，age>
+
+Map 输出：
+输出结果：key是userId， value是<来源于哪张表id, age>
+
+Shuffle Sort：相同的key放在一起。
+
+Reduce 输入：
+每张表相同的key要进行join操作，最后把结果输出。
+key就是Map输出的<来源于哪张表id, pageId>, <来源于哪张表id, age> ， values就是userId组成的list。
+Reduce 输出：
+key是Map输出的<来源于哪张表id, pageId>, <来源于哪张表id, age>，result就是pageId访问的和。
